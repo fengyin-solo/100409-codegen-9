@@ -32,6 +32,13 @@ export type ActionResult = {
   message: string
 }
 
+// 上报泵站故障时必须补齐的核验信息。
+export type PumpFaultForm = {
+  reason: string
+  area: string
+  eta: string
+}
+
 export type OverviewResult = {
   cards: { label: string; value: number }[]
   modules: { name: string; created: number; pending: number; abnormal: number }[]
