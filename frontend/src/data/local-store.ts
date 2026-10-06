@@ -57,3 +57,12 @@ export function resetRows(key: string): EntryRow[] {
 export function storageKey(): string {
   return STORAGE_KEY
 }
+
+// 另一个标签页先落库时丢弃内存缓存，保证「以先落库状态为准」的并发判定读到的是最新数据。
+if (typeof window !== 'undefined' && window.addEventListener) {
+  window.addEventListener('storage', (event: StorageEvent) => {
+    if (event.key === STORAGE_KEY) {
+      cache = null
+    }
+  })
+}

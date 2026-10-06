@@ -327,7 +327,7 @@ export const SEED_ROWS: Record<string, EntryRow[]> = {
     },
     {
       "id": 2,
-      "status": "运行中",
+      "status": "故障中",
       "pending": true,
       "abnormal": true,
       "泵站编号": "PUMP-0002",
